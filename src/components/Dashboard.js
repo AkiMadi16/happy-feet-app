@@ -1,4 +1,6 @@
 import './Dashboard.css'
+import Login from './Login.js';
+import Map from './Map.js';
 
 
 function Dashboard () {
@@ -50,8 +52,9 @@ function Dashboard () {
   return (
   <div>
     <section>
-      <div>
-       
+      <div className='nav-bar'>
+        <Login />
+        My navigation section
       </div>
        
       <div className="Places">
@@ -66,8 +69,9 @@ function Dashboard () {
         </ul>
       </div>
    
-     <div>
-
+     <div className='recommendations'>
+       <Map />
+       Madie's recommendation section
      </div>
      
     </section>
