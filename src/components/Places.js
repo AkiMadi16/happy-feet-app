@@ -58,7 +58,7 @@ function Places() {
   }
 
   return (
-    <div className="Places">
+    <div className="places">
       <h1>{data?.places}</h1>
       <ul>
           {placesData.map((place, index) => (
