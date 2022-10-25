@@ -1,0 +1,13 @@
+.img {
+  height: 100px;
+  width: 100px;
+}
+li {
+  list-style: none;
+}
+
+section {
+  display: flex;
+  justify-content: space-around;
+  gap: 75px;
+}
