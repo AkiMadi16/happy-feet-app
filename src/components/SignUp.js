@@ -1,9 +1,12 @@
-import React from 'react'
+import { useState} from 'react'
 import './Users.css'
 
 
-function SignUp({ setIsLoggedIn, showPassword, setShowPassword, passwordStrength, setPasswordStrength }) {
-  
+function SignUp({ setIsLoggedIn }) {
+  const [showPassword, setShowPassword] = useState(false)
+
+   // const [PasswordStrength, setPasswordStrength] = useState['password is required']
+  // const [isSignedUp, setIsSignedUp] = useState(false)
   
 const handleOnSubmit = (e) => {
   e.preventDefault()
@@ -82,15 +85,14 @@ return (
        <div>
           <label htmlFor="password">Password:</label>
           <input 
-          type="text"
-          // type={showPassword ? 'text' : 'password'} onChange={handleOnChange}
+          type={showPassword ? 'text' : 'password'} 
           name="password"
           id="password"
           />
-          <button id="password" onClick={handleClickChange}>{showPassword ? 'hide password': 'show password'}</button>
+          <button type="button" onClick={handleClickChange}>{showPassword ? 'hide password': 'show password'}</button>
        </div>
-       <div className={passwordStrength}>{passwordStrength}
-       </div>
+       {/* <div className={passwordStrength}>{passwordStrength}
+       </div> */}
        <div>
           <label htmlFor="confirmPassword">Confirm Password:</label>
           <input 
