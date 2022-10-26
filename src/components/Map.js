@@ -6,7 +6,7 @@ function Map() {
   return (
     <div>
     <BingMapsReact
-    bingMapsKey="AgF3Pvp0PXNLFTgt9B7LUocnlNt5B-ZsOF_ZlfuQXHJjIxRxrLseJC9PkR7rtYuF"
+    bingMapsKey="your bing maps API key goes here"
     height="500px"
     mapOptions={{
       navigationBarMode: "square",
