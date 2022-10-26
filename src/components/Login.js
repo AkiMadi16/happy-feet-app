@@ -79,7 +79,7 @@ function Login({ setLoggedInUser }){
               <button 
                 type='submit' 
                 className='btn btn-primary'>
-                  Submit
+                  Login
               </button>
               <div>Or</div>
               <button 

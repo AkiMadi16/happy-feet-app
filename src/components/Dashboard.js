@@ -1,7 +1,12 @@
 import { useState, useEffect } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faMountainSun } from '@fortawesome/free-solid-svg-icons'
+
+
 import './Dashboard.css'
 import Map from './Map.js';
 import Places from './Places';
+
 // import Profile from './Profile';
 import Recommendation from './Recommendation';
 // import Navbar from './Navbar';
@@ -11,11 +16,11 @@ function Dashboard ({loggedInUser, setLoggedInUser}) {
   let navigate = useNavigate();
   const { email, name } = loggedInUser;
 
-  // const onClick = (e) => {
-  //   e.preventDefault()
-  //   setLoggedInUser(false)
-  //   // login in shows my dashboard
-  // }
+  const handleOnLogout = (e) => {
+    e.preventDefault()
+    navigate('/Login')
+    // login in shows my dashboard
+  }
 
   const [places, setPlaces] = useState(null)
 
@@ -30,7 +35,21 @@ function Dashboard ({loggedInUser, setLoggedInUser}) {
     getPlaces()
   }, [])
 
+  // const handleOnLogout = async (e) => {
+  //   e.preventDefault()
+  //   setLoggedInUser(false)
+  
+  //   fetch('/api/sessions', {
+  //     method: 'DELETE'
+  //   })
+  //   .then(() => {
+  //     setError(null)
+  //         setLoggedInUser(res)
+  //         navigate('/login')
+  //   })
 
+ 
+  
 
   return (
   <div>
@@ -38,8 +57,8 @@ function Dashboard ({loggedInUser, setLoggedInUser}) {
     <section>
       <div className='nav-bar'>
       {/* <Navbar /> */}
-      {/* <nav><button onClick={handleOnLogout}>logout</button></nav> */}
-      <button type='button' className="btn btn-primary"  onClick={() =>  navigate('/Login')}>LogOut</button>
+      <nav><button onClick={handleOnLogout}>logout</button></nav>
+      {/* <button type='button' className="btn btn-primary"  onClick={() =>  navigate('/Login')}>LogOut</button> */}
       </div>
        
       <div className="Places">
@@ -55,9 +74,9 @@ function Dashboard ({loggedInUser, setLoggedInUser}) {
       
       
         <h2>recommendation section</h2>
-        <i className="fa-solid fa-mountain-sun"></i>
+        
 
-        <button type='button' className="btn btn-outline-info" onClick={() => navigate('/add-recommendation')}>Add recommendation</button>
+        <button type='button' className="btn btn-outline-info" onClick={() => navigate('/add-recommendation')}><FontAwesomeIcon icon={faMountainSun} /> Add recommendation</button>
      </div> 
       </div>
    
