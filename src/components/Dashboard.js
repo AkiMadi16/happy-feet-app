@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import './Dashboard.css'
-// import Map from './Map.js';
+import Map from './Map.js';
 import Places from './Places';
 // import Profile from './Profile';
 import Recommendation from './Recommendation';
@@ -34,7 +34,7 @@ function Dashboard ({loggedInUser, setLoggedInUser}) {
 
   return (
   <div>
-    <h1>Hello {name}</h1>
+    <h1>Hello {name} </h1>
     <section>
       <div className='nav-bar'>
       {/* <Navbar /> */}
@@ -44,15 +44,19 @@ function Dashboard ({loggedInUser, setLoggedInUser}) {
        
       <div className="Places">
       <div className='mostpopular'>
-       {/* <Map /> */}
-       Most popular sites
+          Most popular sites
+       <Map />
+      
      </div> 
         <Places places={places} />
         
         <div className='recommendations'>
        {/* <Recommendation /> */}
-       <i className="fa-solid fa-mountain-sun"></i>
+      
+      
         <h2>recommendation section</h2>
+        <i className="fa-solid fa-mountain-sun"></i>
+
         <button type='button' className="btn btn-outline-info" onClick={() => navigate('/add-recommendation')}>Add recommendation</button>
      </div> 
       </div>

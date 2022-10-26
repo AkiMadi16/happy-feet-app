@@ -2,8 +2,7 @@ import { useState } from 'react';
 import './Profile.css';
 
 
-function Profile() {
-const [showProfile, setShowProfile]
+function Profile({loggedInUser}) {
 
 const handleOnSubmit = (e) => {
   e.preventDefault()
@@ -30,7 +29,7 @@ const handleOnSubmit = (e) => {
             <label htmlFor="profilephoto">Profile Image URL:</label>
             <input 
             type="text" 
-            name="image"
+            name="img"
             />
           </div>
 

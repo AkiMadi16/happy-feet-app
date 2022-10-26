@@ -36,8 +36,11 @@ function SignUp() {
   }
 
 return (
-  <div>
-    <h1>Hello! my Sign up</h1>
+  <div className="container-sm">
+    <div className="card">
+        <div className="card-body">
+          </div>
+    <h5 className="card-title">Sign up</h5>
       <form 
         onSubmit={handleOnSubmit}
         // onSubmit={async (e) => {
@@ -47,38 +50,47 @@ return (
         //   navigate('/dashboard')
         //  }}
       >
-       <div>
-          <label htmlFor="name">Name:</label>
+       <div className="mb-3">
+          <label htmlFor="name"
+          className="form-label">Name:</label>
           <input 
           type="text"
           name="name"
           id="name"
           required />
        </div>
-       <div>
-          <label htmlFor="email">Email:</label>
+       <div className="mb-3">
+          <label htmlFor="email"
+          className="form-label">Email:</label>
           <input 
+          className="form-control" 
           type="email"
           name="email"
           id="email"
           required
            />
        </div>
-       <div>
-          <label htmlFor="password">Password:</label>
+       <div className="mb-3">
+          <label htmlFor="password"
+          className="form-label">Password:</label>
           <input 
+          className="form-control" 
           type={showPassword ? 'text' : 'password'} 
           name="password"
           id="password"
           required
           />
-          <button type="button" onClick={handleClickChange}>{showPassword ? 'hide password': 'show password'}</button>
+          <button 
+          className='btn btn-primary'
+          type="button" onClick={handleClickChange}>{showPassword ? 'hide password': 'show password'}</button>
        </div>
        {/* <div className={passwordStrength}>{passwordStrength}
        </div> */}
-       <div>
-          <label htmlFor="confirmPassword">Confirm Password:</label>
+       <div lassName="mb-3">
+          <label htmlFor="confirmPassword"
+          className="form-label">Confirm Password:</label>
           <input 
+          className="form-control" 
           type="text"
           name="confirmpassword"
           id="confirmPassword"
@@ -86,13 +98,16 @@ return (
        </div>
 
         <div>
-         <button type="submit">Submit</button>
+         <button 
+         className='btn btn-primary'
+         type="submit">Submit</button>
         </div>
         <div>
             Already have an account?
-            <button onClick={() => navigate('/login')} type='button'>Login</button>
+            <button className='btn btn-success' onClick={() => navigate('/login')} type='button'>Login</button>
           </div>
       </form>
+  </div>
   </div>
   )
 }
