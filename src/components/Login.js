@@ -3,8 +3,9 @@ import { useNavigate } from 'react-router-dom'
 
 import './Users.css'
 
-function Login({ setIsLoggedIn }){
+function Login({ setLoggedInUser }){
   const [showPassword, setShowPassword] = useState(false)
+  const [error, setError] = useState(null)
   const navigate = useNavigate();
   
   const handleOnSubmit = async (event) => {
@@ -22,7 +23,15 @@ function Login({ setIsLoggedIn }){
     })
       .then(res => res.json())
       .then(res => {
-        console.log(res)
+        if (res.error) {
+          setError(res.error)
+        } else {
+          setError(null)
+          setLoggedInUser(res)
+          navigate('/dashboard')
+        }
+
+
       })
   }
 
@@ -33,6 +42,9 @@ function Login({ setIsLoggedIn }){
   return (
     <div className='loginForm'>
        <h2>Log In</h2>
+       {error && (
+        <div class="error">{error}</div>
+       )}
       <div>
         <form onSubmit={handleOnSubmit}>
           <div>

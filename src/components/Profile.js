@@ -1,4 +1,4 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import './Profile.css';
 
 
@@ -14,7 +14,6 @@ const handleOnSubmit = (e) => {
 
   return (
     <div className="Profile">
-      {/* <h1>{data?.profile}</h1> */}
       <div>
       <h1>Hello! my Profile Page</h1>
         <form onSubmit={handleOnSubmit}>

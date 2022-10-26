@@ -1,28 +1,34 @@
 import { useState, useEffect } from 'react'
 import './Dashboard.css'
-import Map from './Map.js';
+// import Map from './Map.js';
 import Places from './Places';
-import Profile from './Profile';
-import Recommendation from './Recommendation';
+// import Profile from './Profile';
+// import Recommendation from './Recommendation';
 // import Navbar from './Navbar';
 import { useNavigate } from "react-router-dom"
 
-function Dashboard () {
+function Dashboard ({loggedInUser}) {
   let navigate = useNavigate();
+  const { email, name } = loggedInUser;
 
   const [places, setPlaces] = useState(null)
 
   const getPlaces = () => {
     console.log('getPlaces')
-    fetch('/places')
+    fetch('/api/allPlaces')
       .then(res => res.json())
       .then(res => setPlaces(res.places))
   }
+
+  useEffect(() => {
+    getPlaces()
+  }, [])
 
 
 
   return (
   <div>
+    <h1>Hello {name}</h1>
     <section>
       <div className='nav-bar'>
       {/* <Navbar /> */}
@@ -30,24 +36,23 @@ function Dashboard () {
        
       <div className="Places">
       <div className='mostpopular'>
-       <Map />
+       {/* <Map /> */}
        Most popular sites
      </div> 
-
+        <Places places={places} />
         
-        <div>
-           <Places />
-        </div>
         <div className='recommendations'>
-       <Recommendation />
-        Madie's recommendation section
+       {/* <Recommendation /> */}
+
+        <h2>recommendation section</h2>
+        <button type='button' onClick={() => navigate('/add-recommendation')}>Add recommendation</button>
      </div> 
       </div>
    
      <div className='profile'>
       
-       Madie's Profile section
-       <Profile />
+        Profile section
+       {/* <Profile /> */}
      </div>
      
     </section>
