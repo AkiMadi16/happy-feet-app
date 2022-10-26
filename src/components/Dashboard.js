@@ -3,13 +3,19 @@ import './Dashboard.css'
 // import Map from './Map.js';
 import Places from './Places';
 // import Profile from './Profile';
-// import Recommendation from './Recommendation';
+import Recommendation from './Recommendation';
 // import Navbar from './Navbar';
 import { useNavigate } from "react-router-dom"
 
-function Dashboard ({loggedInUser}) {
+function Dashboard ({loggedInUser, setLoggedInUser}) {
   let navigate = useNavigate();
   const { email, name } = loggedInUser;
+
+  // const onClick = (e) => {
+  //   e.preventDefault()
+  //   setLoggedInUser(false)
+  //   // login in shows my dashboard
+  // }
 
   const [places, setPlaces] = useState(null)
 
@@ -17,7 +23,7 @@ function Dashboard ({loggedInUser}) {
     console.log('getPlaces')
     fetch('/api/allPlaces')
       .then(res => res.json())
-      .then(res => setPlaces(res.places))
+      .then(res => setPlaces(res))
   }
 
   useEffect(() => {
@@ -32,6 +38,8 @@ function Dashboard ({loggedInUser}) {
     <section>
       <div className='nav-bar'>
       {/* <Navbar /> */}
+      {/* <nav><button onClick={handleOnLogout}>logout</button></nav> */}
+      <button type='button' className="btn btn-primary"  onClick={() =>  navigate('/Login')}>LogOut</button>
       </div>
        
       <div className="Places">
@@ -43,9 +51,9 @@ function Dashboard ({loggedInUser}) {
         
         <div className='recommendations'>
        {/* <Recommendation /> */}
-
+       <i className="fa-solid fa-mountain-sun"></i>
         <h2>recommendation section</h2>
-        <button type='button' onClick={() => navigate('/add-recommendation')}>Add recommendation</button>
+        <button type='button' className="btn btn-outline-info" onClick={() => navigate('/add-recommendation')}>Add recommendation</button>
      </div> 
       </div>
    

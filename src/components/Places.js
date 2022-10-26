@@ -1,7 +1,9 @@
-// import { useQuery } from '@tanstack/react-query'
+import React from 'react';
 import './Places.css';
 
 function Places({places}) {
+
+  console.log({places})
 
   if(!places) {
     return <div>No places</div>
