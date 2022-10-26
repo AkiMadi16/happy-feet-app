@@ -9,5 +9,5 @@ li {
 section {
   display: flex;
   justify-content: space-around;
-  gap: 75px;
+  gap: 10px;
 }

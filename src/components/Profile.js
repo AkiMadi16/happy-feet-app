@@ -1,20 +1,9 @@
-import { useQuery } from '@tanstack/react-query'
 import { useState } from 'react';
 import './Profile.css';
 
 
 function Profile() {
-  // const [showProfile, setShowProfile] = useState(false)
 
-const { isLoading, data } = useQuery(['quoteProfileData'], () =>
-fetch('http://localhost:3001/places').then(res =>
-  res.json()
-)
-)
-
-if (isLoading) {
-return <div>Loading....</div>
-}
 const handleOnSubmit = (e) => {
   e.preventDefault()
   console.log('handle on change')
@@ -25,7 +14,7 @@ const handleOnSubmit = (e) => {
 
   return (
     <div className="Profile">
-      <h1>{data?.profile}</h1>
+      {/* <h1>{data?.profile}</h1> */}
       <div>
       <h1>Hello! my Profile Page</h1>
         <form onSubmit={handleOnSubmit}>

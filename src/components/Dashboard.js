@@ -1,21 +1,31 @@
+import { useState, useEffect } from 'react'
 import './Dashboard.css'
 import Map from './Map.js';
 import Places from './Places';
 import Profile from './Profile';
 import Recommendation from './Recommendation';
-import Navbar from './Navbar';
-
+// import Navbar from './Navbar';
+import { useNavigate } from "react-router-dom"
 
 function Dashboard () {
-  
+  let navigate = useNavigate();
+
+  const [places, setPlaces] = useState(null)
+
+  const getPlaces = () => {
+    console.log('getPlaces')
+    fetch('/places')
+      .then(res => res.json())
+      .then(res => setPlaces(res.places))
+  }
+
+
 
   return (
   <div>
     <section>
       <div className='nav-bar'>
-      <Navbar />
-        logOut
-        My navigation section
+      {/* <Navbar /> */}
       </div>
        
       <div className="Places">

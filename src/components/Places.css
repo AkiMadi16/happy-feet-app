@@ -4,4 +4,13 @@ img {
 
 .places {
   background-color: yellow;
+  flex: 1
+}
+
+@media screen and (max-width: 500px){
+
+  .places {
+      flex-direction: column;
+      height: auto;
+  }
 }

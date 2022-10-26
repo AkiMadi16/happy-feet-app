@@ -1,4 +1,4 @@
-import { useQuery } from '@tanstack/react-query'
+// import { useQuery } from '@tanstack/react-query'
 import './Places.css';
 
 function Places() {
@@ -47,15 +47,15 @@ function Places() {
     }
   ];
 
-  const { isLoading, data } = useQuery(['quoteData'], () =>
-    fetch('http://localhost:3001/places').then(res =>
-      res.json()
-    )
-  )
+  // const { isLoading, data } = useQuery(['quoteData'], () =>
+  //   fetch('http://localhost:3001/places').then(res =>
+  //     res.json()
+  //   )
+  // )
 
-  if (isLoading) {
-    return <div>Loading....</div>
-  }
+  // if (isLoading) {
+  //   return <div>Loading....</div>
+  // }
 
   return (
     <div className="places">
@@ -68,49 +68,7 @@ function Places() {
             <p>{place.address}</p>
           </li>
           ))}
-        </ul>
-        <div>
-        <h1>Hello! my Sign up</h1>
-      {/* <form onSubmit={handleOnSubmit}> */}
-       <div>
-          <label htmlFor="signup">Username:</label>
-          <input 
-          type="text"
-          name="username"
-          id="signup" />
-       </div>
-       <div>
-          <label htmlFor="email">Email:</label>
-          <input 
-          type="email"
-          name="email"
-          id="email"
-           />
-       </div>
-       <div>
-          <label htmlFor="password">Password:</label>
-          <input 
-          // type={showPassword ? 'text' : 'password'} 
-          name="password"
-          id="password"
-          />
-          {/* <button type="button" onClick={handleClickChange}>{showPassword ? 'hide password': 'show password'}</button> */}
-       </div>
-       {/* <div className={passwordStrength}>{passwordStrength}
-       </div> */}
-       <div>
-          <label htmlFor="confirmPassword">Confirm Password:</label>
-          <input 
-          type="text"
-          name="confirmpassword"
-          id="confirmPassword"
-           />
-       </div>
-
-        <div>
-         {/* <button type="submit">Submit</button> */}
-        </div>
-        </div>
+        </ul> 
     </div>
   );
 }

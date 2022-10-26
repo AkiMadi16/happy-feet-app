@@ -1,78 +1,59 @@
 import { useState} from 'react'
 import './Users.css'
+import { useNavigate } from 'react-router-dom'
 
 
-function SignUp({ setIsLoggedIn }) {
+function SignUp() {
   const [showPassword, setShowPassword] = useState(false)
+  let navigate = useNavigate();
+    
+  const handleOnSubmit = async (event) => {
+    event.preventDefault()
+    
+    const form = event.target
 
-   // const [PasswordStrength, setPasswordStrength] = useState['password is required']
-  // const [isSignedUp, setIsSignedUp] = useState(false)
+    const data = Object.fromEntries(new FormData(form))
+    // console.log(data)
   
-const handleOnSubmit = (e) => {
-  e.preventDefault()
-  console.log('changed')
-  setIsLoggedIn(true)
-}
+    fetch('/api/users', {
+      method: 'POST', 
+      headers: {'Content-Type': 'application/json'},
+      body:JSON.stringify(data)
+  })
+      .then(res => res.json())
+      .then(res => {
+          if (res.error) {
+            console.error(res.error)
+          } else {
+            // when signed up navigate to log in page
+            navigate('/login')
+          }     
+      })
+  }
 
-
-// const checkPass = (password) => {
-//   const hasLowerCase = /[a-z]/.test(password)
-//   const hasUpperCase = /[A-Z]/.test(password)
-//   const hasNumber = /\d/.test(password)
-//   const hasNonAlphaNumeric = /[^A-Za-z0-9]/.test(password)
-//   const isOver8Char =   password.length > 8
-//   const isOver12Char = password.length > 12
-//   const score = hasLowerCase + hasUpperCase + hasNumber + hasNonAlphaNumeric + isOver8Char + isOver12Char
-
-//  return { 
-//     score, 
-//     hasLowerCase,
-//     hasUpperCase,
-//     hasNumber,
-//     hasNonAlphaNumeric,
-//     isOver8Char,
-//     isOver12Char,
-//   }
-
-// }
-
-// const handleOnChange = e => {
-//   let message = '';
-//   const password = e.target.value;
-//   const passwordInfo = checkPass(password)
-//   console.log(passwordInfo)
-
-
-//   if (password.length === 0) {
-//     message = 'Password required'
-//   } else if (passwordInfo.score === 1) {
-//     message = 'weak'
-//   } else if (passwordInfo.score < 6 ) {
-//     message = 'medium'
-//   } else {
-//     message = 'strong! save password to login again!'
-//   }
-
-//   setPasswordStrength(message)
-// }
-
-const handleClickChange = () => {
-  setShowPassword(showPassword ? false : true)
-}
-
-
-
+  const handleClickChange = () => {
+    setShowPassword(showPassword ? false : true)
+  }
 
 return (
   <div>
     <h1>Hello! my Sign up</h1>
-      <form onSubmit={handleOnSubmit}>
+      <form 
+        onSubmit={handleOnSubmit}
+        // onSubmit={async (e) => {
+        //   let newSignUp = await handleOnSubmit(
+        //     e.target
+        //   );
+        //   navigate('/dashboard')
+        //  }}
+      >
        <div>
-          <label htmlFor="signup">Username:</label>
+          <label htmlFor="name">Name:</label>
           <input 
           type="text"
-          name="username"
-          id="signup" />
+          name="name"
+          id="name"
+          required />
        </div>
        <div>
           <label htmlFor="email">Email:</label>
@@ -80,6 +61,7 @@ return (
           type="email"
           name="email"
           id="email"
+          required
            />
        </div>
        <div>
@@ -88,6 +70,7 @@ return (
           type={showPassword ? 'text' : 'password'} 
           name="password"
           id="password"
+          required
           />
           <button type="button" onClick={handleClickChange}>{showPassword ? 'hide password': 'show password'}</button>
        </div>
@@ -105,10 +88,12 @@ return (
         <div>
          <button type="submit">Submit</button>
         </div>
+        <div>
+            Already have an account?
+            <button onClick={() => navigate('/login')} type='button'>Login</button>
+          </div>
       </form>
-    
   </div>
-)
-
+  )
 }
 export default SignUp;
