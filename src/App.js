@@ -4,6 +4,7 @@ import Dashboard from './components/Dashboard.js'
 import Recommendation from './components/Recommendation.js'
 import Login from './components/Login.js';
 import SignUp from './components/SignUp.js';
+import Profile from './components/Profile.js';
 
 import './App.css';
 
@@ -21,6 +22,9 @@ function App() {
         )} 
         {loggedInUser && (
           <Route path='/add-recommendation' element={<Recommendation loggedInUser={loggedInUser} />} /> 
+        )}
+         {loggedInUser && (
+          <Route path='/add-profile' element={<Profile loggedInUser={loggedInUser} />} /> 
         )}
         <Route path='/login' element={<Login setLoggedInUser={setLoggedInUser} />} />
         <Route path='/signup' element={<SignUp />} />

@@ -42,14 +42,14 @@ return (
           </div>
     <h5 className="card-title">Sign up</h5>
       <form 
-        onSubmit={handleOnSubmit}
-        // onSubmit={async (e) => {
-        //   let newSignUp = await handleOnSubmit(
+        onSubmit={handleOnSubmit}>
+         {/* onSubmit={async (e) => { */}
+        {/* //   let newSignUp = await handleOnSubmit(
         //     e.target
         //   );
         //   navigate('/dashboard')
-        //  }}
-      >
+        //  }} */}
+      
        <div className="mb-3">
           <label htmlFor="name"
           className="form-label">Name:</label>

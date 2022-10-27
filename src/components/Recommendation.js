@@ -24,7 +24,7 @@ function Recommendation({loggedInUser}) {
           if (res.error) {
             console.error(res.error)
           } else {
-            // when signed up navigate to log in page
+            // when created post navigate to dashboard page
             navigate('/dashboard')
           }     
       })
@@ -43,7 +43,7 @@ return(
        <div>
             <label htmlFor="photo">Experience Image URL:</label>
             <input 
-            id='photo'
+            id="photo"
             type="text" 
             name="img"
             required
@@ -64,5 +64,12 @@ return(
     </div>
 )
 }
+
+// function deleteRecommendation(event) {
+//   const deleteBtn = event.target
+//   const placeDOM = deleteBtn.closest('.places')
+//   const placeId = placeDOM.dataset.id;
+
+// }
 
 export default Recommendation;
