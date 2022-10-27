@@ -33,13 +33,9 @@ function Dashboard ({loggedInUser, setLoggedInUser}) {
   }, [])
 
   const removePlace = indexOfLayerClicked => {
-    const { places } =this.useState
-    console.log(places)
     const updatedPlaces = places.filter((place, i) => 
     i !== indexOfLayerClicked)  
   setPlaces(updatedPlaces)  }
-
- 
 
 
   // const handleOnLogout = async (e) => {
@@ -80,10 +76,10 @@ function Dashboard ({loggedInUser, setLoggedInUser}) {
       
      </div> 
         <Places places={places}  removePlace={removePlace}/>
-        <button 
+        {/* <button 
         type="button" 
         className="btn btn-outline-info" 
-        onClick={() => navigate('/add-recommendation')}>Delete</button>
+        onClick={() => navigate('/dashboard')}>Delete</button> */}
 
         
         <div className='recommendations'>
