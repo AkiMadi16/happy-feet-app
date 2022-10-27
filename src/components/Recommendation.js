@@ -30,37 +30,49 @@ function Recommendation({loggedInUser}) {
       })
   }
 return(
-  <div>
-        <h3>Share your adventures and learn from our global community</h3>
-      <form onSubmit={handleOnSubmit}>
-       <div>
-          <label htmlFor="adventure">Location:</label>
-          <input 
-          type="text"
-          name="address"
-          id="adventure" required />
-       </div>
-       <div>
-            <label htmlFor="photo">Experience Image URL:</label>
-            <input 
-            id="photo"
-            type="text" 
-            name="img"
-            required
-            />
-       </div>
-       <div>
-          <label htmlFor="name">Description:</label>
-          <input 
-          type="text"
-          name="name"
-          id="name"
-          required
-          />
-         <button type="submit">Submit</button>
+    <div className="container-sm">
+      <div className="card">
+        <div className="card-body">
+          <h5 className="card-title">Share your adventures and learn from our global community</h5>
+          <form onSubmit={handleOnSubmit}>
+            <div className="mb-3">
+                <label htmlFor="adventure"
+                className="form-label">Location:</label>
+                <input 
+                className="form-control" 
+                type="text"
+                name="address"
+                id="adventure" required />
+            </div>
+            <div className="mb-3">
+                  <label htmlFor="photo"
+                  className="form-label">Experience Image URL:</label>
+                  <input 
+                  className="form-control" 
+                  id="photo"
+                  type="text" 
+                  name="img"
+                  required
+                  />
+            </div>
+            <div className="mb-3">
+                <label htmlFor="name"
+                className="form-label">Description:</label>
+                <input 
+                className="form-control" 
+                type="text"
+                name="name"
+                id="name"
+                required
+                />
+            </div>
+            <button 
+              className='btn btn-primary'
+              type="submit">Submit</button>
+            <input type="hidden" name='userEmail' value={loggedInUser.email} />
+            </form>
         </div>
-        <input type="hidden" name='userEmail' value={loggedInUser.email} />
-      </form>
+    </div>
     </div>
 )
 }

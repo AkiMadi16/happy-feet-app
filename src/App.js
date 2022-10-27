@@ -14,17 +14,17 @@ function App() {
  
   return (
     <div className="App">
-      <h1>Welcome to Happy Feet App</h1>
+      {/* <h1>Welcome to Happy Feet App</h1> */}
       <Routes>
         <Route path='/' element={<Login setLoggedInUser={setLoggedInUser} />} />
         {loggedInUser && (
-          <Route path='/dashboard' element={<Dashboard loggedInUser={loggedInUser} />} /> 
+          <Route path='/dashboard' element={<Dashboard loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} />} /> 
         )} 
         {loggedInUser && (
           <Route path='/add-recommendation' element={<Recommendation loggedInUser={loggedInUser} />} /> 
         )}
          {loggedInUser && (
-          <Route path='/add-profile' element={<Profile loggedInUser={loggedInUser} />} /> 
+          <Route path='/edit-profile' element={<Profile loggedInUser={loggedInUser}  setLoggedInUser={setLoggedInUser}  />} /> 
         )}
         <Route path='/login' element={<Login setLoggedInUser={setLoggedInUser} />} />
         <Route path='/signup' element={<SignUp />} />

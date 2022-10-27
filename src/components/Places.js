@@ -18,7 +18,10 @@ function Places({places, removePlace}) {
             <h1>{place.name}</h1>
             <img src={place.img} alt="" />
             <p>{place.address}</p>
-            <button onClick={() => removePlace(index)}> delete</button>
+            <button 
+            type="button" 
+            className="btn btn-outline-info" 
+            onClick={() => removePlace(index)}>Delete</button>
           </li>
           ))}
         </ul> 

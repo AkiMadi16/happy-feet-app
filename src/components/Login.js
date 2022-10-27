@@ -30,8 +30,6 @@ function Login({ setLoggedInUser }){
           setLoggedInUser(res)
           navigate('/dashboard')
         }
-
-
       })
   }
 
@@ -49,17 +47,22 @@ function Login({ setLoggedInUser }){
           )}
           <form onSubmit={handleOnSubmit}>
             <div className="mb-3">
-              <label htmlFor="email" className="form-label">Email address</label>
+              <label 
+              htmlFor="email" 
+              className="form-label">Email address</label>
               <input 
                 type="email" 
                 name="email" 
                 className="form-control" 
                 id="email" 
                 required />
-              <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
+              <div 
+              id="emailHelp" 
+              className="form-text">We'll never share your email with anyone else.</div>
             </div>
             <div className="mb-3">
-              <label htmlFor="password" className="form-label">Password </label>
+              <label 
+              htmlFor="password" className="form-label">Password </label>
               <div className='input-group'>
                 <input 
                   type={showPassword ? 'text' : 'password'}  

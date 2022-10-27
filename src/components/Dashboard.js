@@ -32,9 +32,9 @@ function Dashboard ({loggedInUser, setLoggedInUser}) {
     getPlaces()
   }, [])
 
-  const removePlace = indexOfLayerClicked => {
+  const removePlace = indexOfImageClicked => {
     const updatedPlaces = places.filter((place, i) => 
-    i !== indexOfLayerClicked)  
+    i !== indexOfImageClicked)  
   setPlaces(updatedPlaces)  }
 
 
@@ -56,20 +56,23 @@ function Dashboard ({loggedInUser, setLoggedInUser}) {
 
   return (
   <div>
-    <h1>Hello {name} </h1>
-    <section>
+    <section className='dashboard'>
       <div className='nav-bar'>
-      {/* <Navbar /> */}
-      <nav>
-        <button 
+        <button className='btn btn-secondary' onClick={() => setLoggedInUser(null)}>
+          Log out
+        </button>
+      </div>
+
+        {/* <button 
         type='button' 
         className="btn btn-primary" 
-        onClick={handleOnLogout}>logout</button>
-      </nav>
+        onClick={handleOnLogout}>logout</button> */}
+      
       {/* <button type='button' className="btn btn-primary"  onClick={() =>  navigate('/Login')}>LogOut</button> */}
-      </div>
+    
        
       <div className="Places">
+      <h1>Hello {name} </h1>
       <div className='mostpopular'>
           Most popular sites
        <Map />
@@ -88,13 +91,20 @@ function Dashboard ({loggedInUser, setLoggedInUser}) {
         
         <button 
         type="button" 
-        className="btn btn-outline-info" onClick={() => navigate('/add-recommendation')}><FontAwesomeIcon icon={faMountainSun} />Add recommendation</button>
+        className="btn btn-outline-info" 
+        onClick={() => navigate('/add-recommendation')}><FontAwesomeIcon icon={faMountainSun} /> Add recommendation</button>
      </div> 
       </div>
    
      <div className='profile'>
-       {/* <Profile /> */}
-       <button type='button' className="btn btn-outline-info" onClick={() => navigate('/add-profile')}><FontAwesomeIcon icon={ faUser }/>Add profile</button>
+       <button type='button' className="btn btn-outline-info" onClick={() => navigate('/edit-profile')}><FontAwesomeIcon icon={ faUser }/>Edit profile</button>
+       {loggedInUser.photo_url && (
+        <img src={loggedInUser.photo_url} alt="" />
+       )}
+       <h2>{loggedInUser.name}</h2>
+       {loggedInUser.bio && (
+       <p>{loggedInUser.bio}</p>
+       )}
      </div>
      
     </section>

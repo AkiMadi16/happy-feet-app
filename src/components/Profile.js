@@ -1,68 +1,90 @@
 import { useNavigate } from "react-router-dom"
+import { useState, useEffect } from 'react'
 import './Profile.css';
 
-
-function Profile({loggedInUser}) {
+function Profile({loggedInUser, setLoggedInUser}) {
   let navigate = useNavigate();
+  const [name, setName] = useState(loggedInUser.name || '');
+  const [bio, setBio] = useState(loggedInUser.bio  || '');
+  const [photoUrl, setPhotoUrl] = useState(loggedInUser.photo_url || '');
 
-const handleOnSubmit = async (event) => {
-  event.preventDefault()
-  
-  const form = event.target
+  const handleOnSubmit = async (event) => {
+    event.preventDefault()
+    const form = event.target
+    const data = Object.fromEntries(new FormData(form))
 
-  const data = Object.fromEntries(new FormData(form))
-  // console.log(data)
-
-  fetch('/api/users', {
-    method: 'POST', 
-    headers: {'Content-Type': 'application/json'},
-    body:JSON.stringify(data)
-})
-    .then(res => res.json())
-    .then(res => {
-        if (res.error) {
-          console.error(res.error)
-        } else {
-          // when created profile navigate to dashboard page
-          navigate('/dashboard')
-        }     
-    })
-}
+    fetch('/api/users', {
+      method: 'POST', 
+      headers: {'Content-Type': 'application/json'},
+      body:JSON.stringify(data)
+  })
+      .then(res => res.json())
+      .then(res => {
+          if (res.error) {
+            console.error(res.error)
+          } else {
+            // when profile is saved navigate to dashboard page
+            setLoggedInUser(res)
+            navigate('/dashboard')
+          }     
+      })
+  }
 
   return (
-    <div className="Profile">
-      <div>
-      <h1>Profile Page</h1>
-        <form onSubmit={handleOnSubmit}>
-          <div>
-            <label htmlFor="profilename">Profile Name:</label>
-            <input 
-            type="text"
-            name="name"
-            id="profilename" 
-            />
-          </div>
-          <div>
-            <label htmlFor="photo">Profile Image URL:</label>
-            <input 
-            type="text" 
-            name="photoUrl"
-            id="photo"
-            />
-          </div>
-          <div>
-            <label htmlFor="bio">Bio:</label>
-            <input 
-            type="text" 
-            name="bio"
-            id="bio"
-            />
-          </div>
-          <div>
-            <button type="submit">Submit</button>
-          </div>
-          <input type="text" name='userEmail' value={loggedInUser.email} />
-        </form>
+    <div className="container-sm">
+      <div className="card">
+        <div className="card-body">
+          <h5 className="card-title">Profile Page</h5>
+          <form onSubmit={handleOnSubmit}>
+            <div className="mb-3">
+              <label 
+              className="form-label"
+              htmlFor="profilename">Name:
+              </label>
+              <input 
+              type="text"
+              name="name"
+              id="profilename" 
+              className="form-control" 
+              value={name}
+              onChange={e => setName(e.target.value)}
+              />
+            </div>
+            <div className="mb-3">
+              <label 
+              className="form-label"
+              htmlFor="photo">Profile Image URL:</label>
+              <input 
+              type="text" 
+              name="photoUrl"
+              id="photo"
+              value={photoUrl}
+              onChange={e => setPhotoUrl(e.target.value)}
+              className="form-control" 
+              />
+            </div>
+            <div className="mb-3">
+              <label 
+              className="form-label"
+              htmlFor="bio">Bio:
+              </label>
+              <input 
+              type="text" 
+              name="bio"
+              id="bio"
+              value={bio}
+              onChange={e => setBio(e.target.value)}
+              className="form-control" 
+              />
+            </div>
+            <div className="mb-3">
+              <button 
+              className="btn btn-primary"
+              type="submit">Save Profile</button>
+            </div>
+            <input type="hidden" name="email" value={loggedInUser.email} />
+          </form>
+        </div>
       </div>
     </div>
   )

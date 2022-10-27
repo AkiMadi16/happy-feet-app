@@ -38,75 +38,77 @@ function SignUp() {
 return (
   <div className="container-sm">
     <div className="card">
-        <div className="card-body">
-          </div>
-    <h5 className="card-title">Sign up</h5>
-      <form 
-        onSubmit={handleOnSubmit}>
-         {/* onSubmit={async (e) => { */}
-        {/* //   let newSignUp = await handleOnSubmit(
-        //     e.target
-        //   );
-        //   navigate('/dashboard')
-        //  }} */}
-      
-       <div className="mb-3">
-          <label htmlFor="name"
-          className="form-label">Name:</label>
-          <input 
-          type="text"
-          name="name"
-          id="name"
-          required />
-       </div>
-       <div className="mb-3">
-          <label htmlFor="email"
-          className="form-label">Email:</label>
-          <input 
-          className="form-control" 
-          type="email"
-          name="email"
-          id="email"
-          required
-           />
-       </div>
-       <div className="mb-3">
-          <label htmlFor="password"
-          className="form-label">Password:</label>
-          <input 
-          className="form-control" 
-          type={showPassword ? 'text' : 'password'} 
-          name="password"
-          id="password"
-          required
-          />
-          <button 
-          className='btn btn-primary'
-          type="button" onClick={handleClickChange}>{showPassword ? 'hide password': 'show password'}</button>
-       </div>
-       {/* <div className={passwordStrength}>{passwordStrength}
-       </div> */}
-       <div lassName="mb-3">
-          <label htmlFor="confirmPassword"
-          className="form-label">Confirm Password:</label>
-          <input 
-          className="form-control" 
-          type="text"
-          name="confirmpassword"
-          id="confirmPassword"
-           />
-       </div>
-
-        <div>
-         <button 
-         className='btn btn-primary'
-         type="submit">Submit</button>
+      <div className="card-body">
+        <h5 className="card-title">Sign up</h5>
+        <form 
+          onSubmit={handleOnSubmit}>
+          {/* onSubmit={async (e) => { */}
+          {/* //   let newSignUp = await handleOnSubmit(
+          //     e.target
+          //   );
+          //   navigate('/dashboard')
+          //  }} */}
+        
+        <div className="mb-3">
+            <label htmlFor="name"
+            className="form-label">Name:</label>
+            <input 
+            type="text"
+            name="name"
+            id="name"
+            className="form-control" 
+            required />
         </div>
-        <div>
-            Already have an account?
-            <button className='btn btn-success' onClick={() => navigate('/login')} type='button'>Login</button>
+        <div className="mb-3">
+            <label htmlFor="email"
+            className="form-label">Email:</label>
+            <input 
+            className="form-control" 
+            type="email"
+            name="email"
+            id="email"
+            required
+            />
+        </div>
+        <div className="mb-3">
+            <label htmlFor="password"
+            className="form-label">Password:</label>
+            <div className='input-group'>
+              <input 
+              className="form-control" 
+              type={showPassword ? 'text' : 'password'} 
+              name="password"
+              id="password"
+              required
+              />
+              <button 
+              className='btn btn-primary'
+              type="button" onClick={handleClickChange}>{showPassword ? 'hide password': 'show password'}</button>
+            </div>
+        </div>
+        {/* <div className={passwordStrength}>{passwordStrength}
+        </div> */}
+        <div className="mb-3">
+            <label htmlFor="confirmPassword"
+            className="form-label">Confirm Password:</label>
+            <input 
+            className="form-control" 
+            type="text"
+            name="confirmpassword"
+            id="confirmPassword"
+            />
+        </div>
+
+        <div className='d-flex justify-content-between align-items-center'>
+          <button 
+            className='btn btn-primary'
+            type="submit">Create Account</button>
+          <div>
+            Already have an account? <button className='btn btn-success' onClick={() => navigate('/login')} type='button'>Login</button>
           </div>
-      </form>
+        </div>
+        </form>
+      </div>
   </div>
   </div>
   )

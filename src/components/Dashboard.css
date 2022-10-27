@@ -2,12 +2,12 @@
   height: 100px;
   width: 100px;
 }
+
 li {
   list-style: none;
 }
 
-section {
+.dashboard {
   display: flex;
-  justify-content: space-around;
-  gap: 10px;
 }
+

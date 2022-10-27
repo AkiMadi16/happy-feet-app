@@ -3,8 +3,10 @@ img {
 }
 
 .places {
-  background-color: yellow;
-  flex: 1
+  background-color: rgb(25, 35, 69);
+  flex: 1;
+  color: white;
+  
 }
 
 @media screen and (max-width: 500px){
