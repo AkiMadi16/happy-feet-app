@@ -39,8 +39,7 @@ function Map() {
       <MyMapComponent center={center} zoom={zoom} />
     </Wrapper>
   );
-
-  }
+}
 
 
 export default Map;

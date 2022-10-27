@@ -9,5 +9,10 @@ li {
 
 .dashboard {
   display: flex;
+  font-size: 20px;
+}
+
+button {
+  background-color: rgb(112, 216, 245);
 }
 

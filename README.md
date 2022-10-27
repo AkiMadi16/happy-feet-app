@@ -1,3 +1,52 @@
+# Hikr App
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## 🌟 [Click here](https://fierce-oasis-95504.herokuapp.com/) to see my live project!
+
+## 🚀 About
+
+- Add in-app screenshots.
+#  💫 [Click here] - wireframe design with FIGMA (https://www.figma.com/file/LmRWHPM9jUX9VVvpJLXC26/My-Final-Project?node-id=0%3A1)
+
+## ✏️ Planning & Problem Solving
+
+- I have created a schedule using Trello and I wanted to keep a track of my progress with each task that I have planned with my time frame and labelled the most important tasks.
+
+- I have designed my app using FIGMA 
+
+- see below for tic-box plan.
+
+- [ ] Create Project Folder with React create app
+- [ ] Create Express api endpoints
+- [ ] Install Node Packages 
+- [ ] set up database
+- [ ] Create git repository for both front end app and back end api
+- [ ] Deploy Heroku
+- [ ] Add Extra features
+
+## 🖥 Cool tech
+- Programming languages (JAVASCRIPT/ CSS /SQL)
+- Web Framework (REACT / EXPRESS NODEJS)
+
+
+## 😱 Bugs to fix :poop:
+- Anything a little broken (Draw condition was not succesful until I clearoff the click turn/ realized a pop up text box to fill in players names than a prompt is better to keep a record)
+
+- Anything a LOT broken
+- 
+
+## 😭: Lessons learnt
+- Better planing
+
+
+## :white_check_mark: Future features
+- Weather search for recommended sites
+- Maps pushpin feature with most popular places from user recommended location address
+
+## : Credits
+
+- Genaral Assembly Software Engineering Immersive Course 
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

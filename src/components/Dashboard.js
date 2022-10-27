@@ -63,16 +63,12 @@ function Dashboard ({loggedInUser, setLoggedInUser}) {
         </button>
       </div>
 
-        {/* <button 
-        type='button' 
-        className="btn btn-primary" 
-        onClick={handleOnLogout}>logout</button> */}
-      
       {/* <button type='button' className="btn btn-primary"  onClick={() =>  navigate('/Login')}>LogOut</button> */}
     
        
       <div className="Places">
-      <h1>Hello {name} </h1>
+      <h1> Hikr </h1>
+      <h5>Hello {name} </h5>
       <div className='mostpopular'>
           Most popular sites
        <Map />
@@ -84,7 +80,6 @@ function Dashboard ({loggedInUser, setLoggedInUser}) {
         className="btn btn-outline-info" 
         onClick={() => navigate('/dashboard')}>Delete</button> */}
 
-        
         <div className='recommendations'>
        {/* <Recommendation /> */}
         <h2>recommendation section</h2>

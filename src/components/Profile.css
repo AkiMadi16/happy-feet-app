@@ -1,4 +1,11 @@
 .profile {
   background-color: rgb(111, 170, 247);
-  width: 200px;
+  width: 400px;
+  font-size: 20px;
+  margin: 10px;
+  padding: 20px;
+}
+
+.formControl {
+ margin: 10px;
 }
