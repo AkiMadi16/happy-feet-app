@@ -4,9 +4,9 @@ import './Profile.css';
 
 function Profile({loggedInUser, setLoggedInUser}) {
   let navigate = useNavigate();
-  const [name, setName] = useState(loggedInUser.name || '');
-  const [bio, setBio] = useState(loggedInUser.bio  || '');
-  const [photoUrl, setPhotoUrl] = useState(loggedInUser.photo_url || '');
+  const [name, setName] = useState('');
+  const [bio, setBio] = useState( '');
+  const [photoUrl, setPhotoUrl] = useState( '');
 
   const handleOnSubmit = async (event) => {
     event.preventDefault()
@@ -29,6 +29,38 @@ function Profile({loggedInUser, setLoggedInUser}) {
           }     
       })
   }
+
+  //Update profile & Delete Profile
+  // function updateBaker(event) {
+  //   event.preventDefault();
+  //   const form = event.target;
+  //   const data = Object.fromEntries(new FormData(form))
+  //   // console.log(data);
+  //   userId = data.id;
+  //   var userIndex = 0
+  //   state.users.forEach((user, index) => {
+  //     if (user.id == userId) {
+  //         userIndex = index
+
+  //     }
+  // })
+
+
+
+//   fetch(`/api/users/${bakerId}`, {
+//     method: 'PUT',
+//     headers: { 'Content-Type': 'application/json'},
+//     body: JSON.stringify(data)
+// })
+//     .then(res => res.json())
+//     .then(user => {
+//       console.log(user)
+//         state.users[bakerIndex] = user;
+//         setLoggedInUser(res)
+//         navigate('/dashboard')
+        
+//     })
+
 
   return (
     <div className="container-sm">
