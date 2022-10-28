@@ -1,6 +1,10 @@
 import { useNavigate } from "react-router-dom"
 import { useState, useEffect } from 'react'
 import './Profile.css';
+// import Button from 'react-bootstrap/Button';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+
 
 function Profile({loggedInUser, setLoggedInUser}) {
   let navigate = useNavigate();
@@ -111,8 +115,8 @@ function Profile({loggedInUser, setLoggedInUser}) {
             </div>
             <div className="mb-3">
               <button 
-              className="btn btn-primary"
-              type="submit">Save Profile</button>
+              // className="btn btn-primary"
+              variant="outline-primary"        type="submit">Save Profile</button>{' '}
             </div>
             <input type="hidden" name="email" value={loggedInUser.email} />
           </form>

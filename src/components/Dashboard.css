@@ -9,7 +9,8 @@ li {
 
 .dashboard {
   display: flex;
-  font-size: 20px;
+  font-size: 16px;
+
 }
 
 button {
@@ -17,5 +18,9 @@ button {
 }
 
 .recommendations {
-  font-size: 20px;
+  font-size: 12px;
+}
+
+h2{
+  font-size: 14px;
 }
