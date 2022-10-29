@@ -1,14 +1,9 @@
-.navBar {
-    background-color: aqua;
-    width: 200px;
+.navbar-brand {
+  font-weight: 900;
+  font-size: 22px;
 }
 
-@media screen and (max-width: 500px){
-
-  /* link {
-      flex-direction: column;
-      height: auto;
-  } */
-
-
+.navbar-greeting {
+  font-weight: normal;
+  margin-left: 30px;
 }

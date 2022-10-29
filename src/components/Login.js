@@ -38,61 +38,65 @@ function Login({ setLoggedInUser }){
   }
 
   return (
-    <div className="container-sm">
-      <div className="card">
-        <div className="card-body">
-          <h5 className="card-title">Log In</h5>
-          {error && (
-            <div className="alert alert-danger mb-3">{error}</div>
-          )}
-          <form onSubmit={handleOnSubmit}>
-            <div className="mb-3">
-              <label 
-              htmlFor="email" 
-              className="form-label">Email address</label>
-              <input 
-                type="email" 
-                name="email" 
-                className="form-control" 
-                id="email" 
-                required />
-              <div 
-              id="emailHelp" 
-              className="form-text">We'll never share your email with anyone else.</div>
-            </div>
-            <div className="mb-3">
-              <label 
-              htmlFor="password" className="form-label">Password </label>
-              <div className='input-group'>
-                <input 
-                  type={showPassword ? 'text' : 'password'}  
-                  className="form-control" 
-                  id="password" 
-                  name='password' 
-                  required />
+    <div className="container form">
+      <div className="row">
+        <div className="col-md-6 offset-md-3">
+          <div className="card">
+            <div className="card-body">
+              <h5 className="card-title">Log In</h5>
+              {error && (
+                <div className="alert alert-danger mb-3">{error}</div>
+              )}
+              <form onSubmit={handleOnSubmit}>
+                <div className="mb-3">
+                  <label 
+                  htmlFor="email" 
+                  className="form-label">Email address</label>
+                  <input 
+                    type="email" 
+                    name="email" 
+                    className="form-control" 
+                    id="email" 
+                    required />
+                  <div 
+                  id="emailHelp" 
+                  className="form-text">We'll never share your email with anyone else.</div>
+                </div>
+                <div className="mb-3">
+                  <label 
+                  htmlFor="password" className="form-label">Password </label>
+                  <div className='input-group'>
+                    <input 
+                      type={showPassword ? 'text' : 'password'}  
+                      className="form-control" 
+                      id="password" 
+                      name='password' 
+                      required />
+                      <button 
+                        className='btn btn-primary'
+                        type='button' 
+                        onClick={handleClickChange}>
+                          {showPassword ? 'hide password': 'show password'}
+                      </button>
+                  </div>
+                </div>
+                <div className='d-flex justify-content-between align-items-center'>
                   <button 
-                    className='btn btn-primary'
-                    type='button' 
-                    onClick={handleClickChange}>
-                      {showPassword ? 'hide password': 'show password'}
+                    type='submit' 
+                    className='btn btn-primary'>
+                      Login
                   </button>
-              </div>
+                  <div>Or</div>
+                  <button 
+                    className='btn btn-success' 
+                    onClick={() => navigate('/signup')} 
+                    type='button'>
+                      Create New Account
+                  </button>
+                </div>
+              </form>
             </div>
-            <div className='d-flex justify-content-between align-items-center'>
-              <button 
-                type='submit' 
-                className='btn btn-primary'>
-                  Login
-              </button>
-              <div>Or</div>
-              <button 
-                className='btn btn-success' 
-                onClick={() => navigate('/signup')} 
-                type='button'>
-                  Create New Account
-              </button>
-            </div>
-          </form>
+          </div>
         </div>
       </div>
     </div>
