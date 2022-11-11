@@ -6,7 +6,6 @@ import Login from './components/Login.js';
 import SignUp from './components/SignUp.js';
 import EditProfile from './components/EditProfile.js';
 import Home from './components/Home.js';
-
 import './App.css';
 
 

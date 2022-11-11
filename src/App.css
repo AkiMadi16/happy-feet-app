@@ -2,6 +2,7 @@ body {
   background-image: url('https://i.imgur.com/idYvw24.jpg');
   background-repeat: no-repeat;
   background-position: right bottom;
+  background-size: cover;
   min-height: 100vh;
 }
 
