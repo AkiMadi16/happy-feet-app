@@ -1,38 +1,36 @@
-import { useNavigate, Link } from "react-router-dom"
-import { useState, useEffect } from 'react'
-import './EditProfile.css';
+import { useNavigate, Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import "./EditProfile.css";
 // import Button from 'react-bootstrap/Button';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 
-
-
-function EditProfile({loggedInUser, setLoggedInUser}) {
+function EditProfile({ loggedInUser, setLoggedInUser }) {
   let navigate = useNavigate();
-  const [name, setName] = useState('');
-  const [bio, setBio] = useState( '');
-  const [photoUrl, setPhotoUrl] = useState( '');
+  const [name, setName] = useState("");
+  const [bio, setBio] = useState("");
+  const [photoUrl, setPhotoUrl] = useState("");
 
   const handleOnSubmit = async (event) => {
-    event.preventDefault()
-    const form = event.target
-    const data = Object.fromEntries(new FormData(form))
+    event.preventDefault();
+    const form = event.target;
+    const data = Object.fromEntries(new FormData(form));
 
-    fetch('/api/users', {
-      method: 'POST', 
-      headers: {'Content-Type': 'application/json'},
-      body:JSON.stringify(data)
-  })
-      .then(res => res.json())
-      .then(res => {
-          if (res.error) {
-            console.error(res.error)
-          } else {
-            // when profile is saved navigate to dashboard page
-            setLoggedInUser(res)
-            navigate('/dashboard')
-          }     
-      })
-  }
+    fetch("/api/users", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        if (res.error) {
+          console.error(res.error);
+        } else {
+          // when profile is saved navigate to dashboard page
+          setLoggedInUser(res);
+          navigate("/dashboard");
+        }
+      });
+  };
 
   //Update profile & Delete Profile
   // function updateBaker(event) {
@@ -49,22 +47,19 @@ function EditProfile({loggedInUser, setLoggedInUser}) {
   //     }
   // })
 
+  //   fetch(`/api/users/${bakerId}`, {
+  //     method: 'PUT',
+  //     headers: { 'Content-Type': 'application/json'},
+  //     body: JSON.stringify(data)
+  // })
+  //     .then(res => res.json())
+  //     .then(user => {
+  //       console.log(user)
+  //         state.users[bakerIndex] = user;
+  //         setLoggedInUser(res)
+  //         navigate('/dashboard')
 
-
-//   fetch(`/api/users/${bakerId}`, {
-//     method: 'PUT',
-//     headers: { 'Content-Type': 'application/json'},
-//     body: JSON.stringify(data)
-// })
-//     .then(res => res.json())
-//     .then(user => {
-//       console.log(user)
-//         state.users[bakerIndex] = user;
-//         setLoggedInUser(res)
-//         navigate('/dashboard')
-        
-//     })
-
+  //     })
 
   return (
     <div className="container form">
@@ -75,53 +70,51 @@ function EditProfile({loggedInUser, setLoggedInUser}) {
               <h5 className="card-title">Profile Page</h5>
               <form onSubmit={handleOnSubmit}>
                 <div className="mb-3">
-                  <label 
-                  className="form-label"
-                  htmlFor="profilename">Name:
+                  <label className="form-label" htmlFor="profilename">
+                    Name:
                   </label>
-                  <input 
-                  type="text"
-                  name="name"
-                  id="profilename" 
-                  className="form-control" 
-                  value={name}
-                  onChange={e => setName(e.target.value)}
+                  <input
+                    type="text"
+                    name="name"
+                    id="profilename"
+                    className="form-control"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
                   />
                 </div>
                 <div className="mb-3">
-                  <label 
-                  className="form-label"
-                  htmlFor="photo">Profile Image URL:</label>
-                  <input 
-                  type="text" 
-                  name="photoUrl"
-                  id="photo"
-                  value={photoUrl}
-                  onChange={e => setPhotoUrl(e.target.value)}
-                  className="form-control" 
+                  <label className="form-label" htmlFor="photo">
+                    Profile Image URL:
+                  </label>
+                  <input
+                    type="text"
+                    name="photoUrl"
+                    id="photo"
+                    value={photoUrl}
+                    onChange={(e) => setPhotoUrl(e.target.value)}
+                    className="form-control"
                   />
                 </div>
                 <div className="mb-3">
-                  <label 
-                  className="form-label"
-                  htmlFor="bio">Bio:
+                  <label className="form-label" htmlFor="bio">
+                    Bio:
                   </label>
-                  <input 
-                  type="text" 
-                  name="bio"
-                  id="bio"
-                  value={bio}
-                  onChange={e => setBio(e.target.value)}
-                  className="form-control" 
+                  <input
+                    type="text"
+                    name="bio"
+                    id="bio"
+                    value={bio}
+                    onChange={(e) => setBio(e.target.value)}
+                    className="form-control"
                   />
                 </div>
                 <div className="d-flex justify-content-between">
-                  <button 
-                  className="btn btn-primary"
-                  type="submit">Save Profile</button>
-                  <Link 
-                  to='/dashboard'
-                  className="btn btn-secondary">Cancel</Link>
+                  <button className="btn btn-primary" type="submit">
+                    Save Profile
+                  </button>
+                  <Link to="/dashboard" className="btn btn-secondary">
+                    Cancel
+                  </Link>
                 </div>
                 <input type="hidden" name="email" value={loggedInUser.email} />
               </form>
@@ -130,8 +123,7 @@ function EditProfile({loggedInUser, setLoggedInUser}) {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 export default EditProfile;
-    
