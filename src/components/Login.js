@@ -83,12 +83,12 @@ function Login({ setLoggedInUser }) {
                   </div>
                 </div>
                 <div className="d-flex justify-content-between align-items-center">
-                  <button type="submit" className="btn btn-primary">
+                  <button type="submit" className="btn btn-success">
                     Login
                   </button>
                   <div>Or</div>
                   <button
-                    className="btn btn-success"
+                    className="btn btn-primary"
                     onClick={() => navigate("/signup")}
                     type="button"
                   >
