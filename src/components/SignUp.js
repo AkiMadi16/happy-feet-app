@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 function SignUp() {
   const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState(null);
   let navigate = useNavigate();
 
   const handleOnSubmit = async (event) => {
@@ -12,6 +13,11 @@ function SignUp() {
     const form = event.target;
 
     const data = Object.fromEntries(new FormData(form));
+
+    if (data.password !== data.confirmpassword) {
+      setError("Password and Confirm password fields don't match.");
+      return;
+    }
     // console.log(data)
 
     fetch("/api/users", {
@@ -37,10 +43,11 @@ function SignUp() {
   return (
     <div className="container form">
       <div className="row">
-        <div className="col-md-6 offset-md-3">
+        <div className="col-lg-6 offset-lg-3">
           <div className="card">
             <div className="card-body">
               <h5 className="card-title">Sign up</h5>
+              {error && <div className="alert alert-danger mb-3">{error}</div>}
               <form onSubmit={handleOnSubmit}>
                 {/* onSubmit={async (e) => { */}
                 {/* //   let newSignUp = await handleOnSubmit(
@@ -102,20 +109,20 @@ function SignUp() {
                   </label>
                   <input
                     className="form-control"
-                    type="text"
+                    type="password"
                     name="confirmpassword"
                     id="confirmPassword"
                   />
                 </div>
 
                 <div className="d-flex justify-content-between align-items-center">
-                  <button className="btn btn-primary" type="submit">
+                  <button className="btn btn-success" type="submit">
                     Create Account
                   </button>
                   <div>
                     Already have an account?{" "}
                     <button
-                      className="btn btn-success"
+                      className="btn btn-primary"
                       onClick={() => navigate("/login")}
                       type="button"
                     >
