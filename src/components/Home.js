@@ -1,9 +1,9 @@
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
 import "./Home.css";
 
 function Home({ loggedInUser, setLoggedInUser }) {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   return (
     <div>

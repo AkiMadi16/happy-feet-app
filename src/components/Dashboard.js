@@ -4,11 +4,11 @@ import Map from "./Map.js";
 import Places from "./Places";
 import Profile from "./Profile";
 import Navbar from "./Navbar";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function Dashboard({ loggedInUser, setLoggedInUser }) {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [places, setPlaces] = useState(null);
 
   const getPlaces = () => {

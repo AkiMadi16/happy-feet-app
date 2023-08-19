@@ -18,7 +18,15 @@ function SignUp() {
       setError("Password and Confirm password fields don't match.");
       return;
     }
-    // console.log(data)
+    console.log(data);
+
+    // try {
+    //   // const response = await fetch("/api/users");
+    //   // const data = await response.json();
+    //   // console.log(data);
+    // } catch (error) {
+    //   console.error("API call error:", error);
+    // }
 
     fetch("/api/users", {
       method: "POST",
@@ -27,6 +35,7 @@ function SignUp() {
     })
       .then((res) => res.json())
       .then((res) => {
+        // console.log(res);
         if (res.error) {
           console.error(res.error);
         } else {
@@ -120,7 +129,7 @@ function SignUp() {
                     Create Account
                   </button>
                   <div>
-                    Already have an account?{" "}
+                    Already have an account?
                     <button
                       className="btn btn-primary"
                       onClick={() => navigate("/login")}

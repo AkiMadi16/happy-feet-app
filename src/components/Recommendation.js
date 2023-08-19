@@ -83,11 +83,4 @@ function Recommendation({ loggedInUser }) {
   );
 }
 
-// function deleteRecommendation(event) {
-//   const deleteBtn = event.target
-//   const placeDOM = deleteBtn.closest('.places')
-//   const placeId = placeDOM.dataset.id;
-
-// }
-
 export default Recommendation;

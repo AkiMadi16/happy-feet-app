@@ -1,5 +1,5 @@
 import { useNavigate, Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "./EditProfile.css";
 // import Button from 'react-bootstrap/Button';
 import "bootstrap/dist/css/bootstrap.min.css";

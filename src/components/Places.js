@@ -27,14 +27,17 @@ function Places({ places, removePlace }) {
       <ul className="places-list">
         {places.map((place, index) => (
           <li key={index}>
-            {/* <h1>{place.name}</h1>
-          <img src={place.img} alt="" />
-          <p>{place.address}</p>
-          <button 
-          type="button" 
-          className="btn btn-outline-info" 
-          onClick={() => removePlace(index)}>Delete</button>
-            */}
+            <h1>{place.name}</h1>
+            <img src={place.img} alt="" />
+            <p>{place.address}</p>
+            <button
+              type="button"
+              className="btn btn-outline-info"
+              onClick={() => removePlace(index)}
+            >
+              Delete
+            </button>
+
             <div className="card mb-3">
               <div className="row g-0">
                 <div className="col-md-4 place-image">
